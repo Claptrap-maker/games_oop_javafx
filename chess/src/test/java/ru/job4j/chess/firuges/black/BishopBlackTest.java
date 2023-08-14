@@ -11,7 +11,7 @@ class BishopBlackTest {
 
     @Test
     void position() {
-        ru.job4j.chess.firuges.black.BishopBlack bishop = new ru.job4j.chess.firuges.black.BishopBlack(Cell.C1);
+        BishopBlack bishop = new BishopBlack(Cell.C1);
         Cell result = bishop.position();
         Cell expected = Cell.C1;
         assertThat(result).isEqualTo(expected);
@@ -19,7 +19,7 @@ class BishopBlackTest {
 
     @Test
     void way() {
-        ru.job4j.chess.firuges.black.BishopBlack bishop = new ru.job4j.chess.firuges.black.BishopBlack(Cell.C1);
+        BishopBlack bishop = new BishopBlack(Cell.C1);
         Cell[] result = bishop.way(Cell.G5);
         Cell[] expected = {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
         assertThat(result).containsExactly(expected);
@@ -30,14 +30,14 @@ class BishopBlackTest {
         ImpossibleMoveException exception = assertThrows(
                 ImpossibleMoveException.class,
                 () -> {
-                    new ru.job4j.chess.firuges.black.BishopBlack(Cell.C1).way(Cell.G3);
+                    new BishopBlack(Cell.C1).way(Cell.G3);
                 });
         assertThat(exception.getMessage()).isEqualTo("Could not way by diagonal from C1 to G3");
     }
 
     @Test
     void copy() {
-        ru.job4j.chess.firuges.black.BishopBlack bishop = new ru.job4j.chess.firuges.black.BishopBlack(Cell.C1);
+        BishopBlack bishop = new BishopBlack(Cell.C1);
         Cell result = bishop.copy(Cell.G5).position();
         Cell expected = Cell.G5;
         assertThat(result).isEqualTo(expected);
