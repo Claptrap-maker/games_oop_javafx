@@ -26,7 +26,7 @@ public class LogicTest {
             logic.add(new BishopBlack(Cell.D4));
             logic.move(Cell.C3, Cell.E5);
         });
-        assertThat(exception.getClass()).isEqualTo(OccupiedCellException.class);
+        assertThat(exception.getMessage()).isEqualTo("Occupied cell on the way");
     }
 
     @Test
